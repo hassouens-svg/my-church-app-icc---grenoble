@@ -34,6 +34,11 @@ export default function Login() {
         <Field label="Identifiant"><input className="input" autoFocus required value={username} onChange={(e) => setUsername(e.target.value)} /></Field>
         <Field label="Mot de passe"><input type="password" className="input" required value={password} onChange={(e) => setPassword(e.target.value)} /></Field>
         <button className="btn-primary w-full">Se connecter</button>
+        {SITE.afficherComptesDemo && (
+          <p className="rounded-lg bg-indigo-50 p-3 text-center text-xs text-indigo-800">
+            Démo : <b>admin</b> / <b>admin123</b> · <b>pasteur</b> / <b>pasteur123</b> · <b>accueil</b> / <b>accueil123</b>
+          </p>
+        )}
         <p className="text-center text-sm"><Link to="/" className="text-indigo-600 hover:underline">← Retour à l'accueil</Link></p>
       </form>
     </div>

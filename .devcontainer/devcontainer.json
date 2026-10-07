@@ -1,0 +1,17 @@
+{
+  "name": "ICC Grenoble",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+  },
+  "postCreateCommand": "bash .devcontainer/installer.sh",
+  "postStartCommand": "bash .devcontainer/demarrer.sh",
+  "forwardPorts": [8000, 5173],
+  "portsAttributes": {
+    "8000": { "label": "Application ICC Grenoble", "onAutoForward": "openPreview" },
+    "5173": { "label": "Mode développement (rechargement auto)", "onAutoForward": "notify" }
+  },
+  "customizations": {
+    "vscode": { "extensions": ["ms-python.python", "dbaeumer.vscode-eslint", "bradlc.vscode-tailwindcss"] }
+  }
+}

@@ -1,0 +1,13 @@
+# Mise en ligne sur Render (https://render.com) : New → Blueprint → choisir ce dépôt.
+services:
+  - type: web
+    name: icc-grenoble
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SEED_DEMO_DATA
+        value: "true"

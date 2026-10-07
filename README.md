@@ -1,9 +1,9 @@
-# My Church ICC App — ICC BFC-Italie
+# My Church ICC App — ICC Grenoble
 
 > **Une seule base de données : les FIDÈLES au cœur de tout le système.**
 > 1 fidèle = 1 fiche unique, partagée par tous les départements.
 
-Plateforme centralisée de gestion de l'Église (Impact Centre Chrétien — Bourgogne-Franche-Comté et Italie).
+Plateforme centralisée de gestion de l'Église (Impact Centre Chrétien — Grenoble).
 
 ```
    ÉVANGÉLISATION ─┐                        ┌─ FAMILLES D'IMPACT
@@ -12,6 +12,36 @@ Plateforme centralisée de gestion de l'Église (Impact Centre Chrétien — Bou
 
 Parcours :  Évangélisation → Accueil → Discipolat → Famille de disciple → Famille d'Impact → Membre actif
 ```
+
+## 🌐 Voir l'application en ligne
+
+GitHub stocke le code, mais l'application a besoin d'un serveur (pour la base de données).
+Deux façons de la voir tourner « pour de vrai » :
+
+### A. Directement depuis GitHub (Codespaces) : 1 clic, rien à installer
+
+[![Ouvrir dans GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/hassouens-svg/my-church-app-icc---grenoble?quickstart=1)
+
+1. Cliquer sur le bouton ci-dessus (ou **Code → Codespaces → Create codespace on main**)
+2. Attendre 2 à 3 minutes : tout s'installe et démarre tout seul
+3. L'application s'ouvre dans un aperçu. Pour l'ouvrir dans un vrai onglet : onglet **PORTS** → port **8000** → icône 🌐
+4. Se connecter avec `admin` / `admin123`
+
+Idéal pour tester et pour **modifier le code** : le port **5173** affiche les modifications en direct.
+Le Codespace s'éteint après 30 min d'inactivité (gratuit dans la limite du quota mensuel de GitHub).
+Pour montrer l'app à quelqu'un : onglet PORTS → clic droit sur 8000 → **Port Visibility → Public**, puis partager l'adresse.
+
+### B. Une adresse publique permanente (Render, gratuit)
+
+[![Déployer sur Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/hassouens-svg/my-church-app-icc---grenoble)
+
+1. Créer un compte sur https://render.com avec « Sign in with GitHub »
+2. Cliquer sur le bouton ci-dessus (ou **New → Blueprint** → choisir ce dépôt), puis **Apply**
+3. Après ~5 min, l'app est en ligne à une adresse du type `https://icc-grenoble.onrender.com`
+
+À savoir sur l'offre gratuite : le site se met en veille après 15 min sans visite (≈ 1 min pour se réveiller),
+et **les données sont remises à zéro à chaque redémarrage**. Parfait pour une démo ; pour de vraies données,
+ajouter une base PostgreSQL (voir le guide de modification, § 7) ou un disque persistant (offre payante).
 
 ## Fonctionnalités
 
@@ -35,7 +65,7 @@ Parcours :  Évangélisation → Accueil → Discipolat → Famille de disciple 
 
 ## Démarrage rapide
 
-### Option 1 — avec Docker (le plus simple)
+### Option 1 — avec Docker
 ```bash
 docker compose up --build
 ```
@@ -70,7 +100,13 @@ Application : http://localhost:5173
 | `pasteur` | `pasteur123` | Pasteur |
 | `accueil` | `accueil123` | Responsable Accueil |
 
-⚠️ Les données de démonstration (personnes, campus…) sont **fictives**. En production : mettre `SEED_DEMO_DATA=false`, changer `SECRET_KEY` et le mot de passe `admin`.
+⚠️ Les données de démonstration (personnes, campus…) sont **fictives**. En production : mettre `SEED_DEMO_DATA=false`, changer `SECRET_KEY` et le mot de passe `admin`, et passer `afficherComptesDemo` à `false` dans `frontend/src/config/site.js`.
+
+### Mode « tout-en-un » (comme en ligne)
+```bash
+cd frontend && npm run build      # compile le site dans frontend/dist
+cd ../backend && uvicorn app.main:app   # sert le site ET l'API sur http://localhost:8000
+```
 
 ### Tests
 ```bash
@@ -97,6 +133,9 @@ frontend/
     pages/                  ← une page par écran
     components/             ← composants réutilisables (Layout, formulaires, tableaux)
     lib/api.js              ← appels au backend
+Dockerfile           ← image tout-en-un pour la mise en ligne
+render.yaml          ← configuration Render
+.devcontainer/       ← configuration GitHub Codespaces
 ```
 
 👉 Voir **[docs/GUIDE_MODIFICATION.md](docs/GUIDE_MODIFICATION.md)** pour les modifications courantes, pas à pas,

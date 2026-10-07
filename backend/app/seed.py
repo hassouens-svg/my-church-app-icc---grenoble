@@ -38,9 +38,9 @@ def seed(db: Session, demo: bool = True) -> None:
 
 def _seed_demo(db: Session) -> None:
     rnd = random.Random(42)
-    campus = [Campus(nom="Dijon", ville="Dijon", pays="France"),
-              Campus(nom="Besançon", ville="Besançon", pays="France"),
-              Campus(nom="Rome", ville="Rome", pays="Italie")]
+    campus = [Campus(nom="Grenoble Centre", ville="Grenoble", pays="France"),
+              Campus(nom="Échirolles", ville="Échirolles", pays="France"),
+              Campus(nom="Saint-Martin-d'Hères", ville="Saint-Martin-d'Hères", pays="France")]
     db.add_all(campus)
     db.flush()
 
@@ -84,12 +84,12 @@ def _seed_demo(db: Session) -> None:
 
     leaders = [f for f in fideles if f.etape == "membre_actif"] or fideles[:3]
     familles = [
-        FamilleImpact(nom="FI Dijon Centre", campus_id=campus[0].id, secteur="Centre",
+        FamilleImpact(nom="FI Grenoble Centre", campus_id=campus[0].id, secteur="Hyper-centre",
                       jour_reunion="Mercredi", heure_reunion="19:30", pilote_id=leaders[0].id),
-        FamilleImpact(nom="FI Besançon Planoise", campus_id=campus[1].id, secteur="Planoise",
+        FamilleImpact(nom="FI Échirolles Village 2", campus_id=campus[1].id, secteur="Village 2",
                       jour_reunion="Jeudi", heure_reunion="19:00", pilote_id=leaders[-1].id),
-        FamilleImpact(nom="FI Roma Nord", campus_id=campus[2].id, secteur="Nord",
-                      jour_reunion="Venerdì", heure_reunion="20:00"),
+        FamilleImpact(nom="FI Saint-Martin-d'Hères Campus", campus_id=campus[2].id, secteur="Domaine universitaire",
+                      jour_reunion="Vendredi", heure_reunion="20:00"),
     ]
     db.add_all(familles)
     db.flush()
@@ -118,11 +118,11 @@ def _seed_demo(db: Session) -> None:
                              nouveaux=rnd.randint(0, 6), personnes_de_passage=rnd.randint(0, 4)))
 
     db.add_all([
-        Evenement(titre="Retraite des jeunes de la BFC", date=now() + timedelta(days=2),
-                  lieu="Dijon", departement="juniors"),
+        Evenement(titre="Retraite des jeunes d'ICC Grenoble", date=now() + timedelta(days=2),
+                  lieu="Grenoble", departement="juniors"),
         Evenement(titre="Nuit de prière", date=now() + timedelta(days=9),
-                  lieu="Besançon", departement="mpi"),
+                  lieu="Échirolles", departement="mpi"),
         Evenement(titre="Sortie d'évangélisation", date=now() + timedelta(days=5),
-                  lieu="Centre-ville de Dijon", departement="evangelisation"),
+                  lieu="Place Grenette, Grenoble", departement="evangelisation"),
     ])
     db.commit()
