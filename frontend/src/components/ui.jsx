@@ -8,12 +8,12 @@ export function PageHeader({ titre, sousTitre, icone: Icone, actions }) {
     <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
       <div className="flex items-center gap-3">
         {Icone && (
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-marine text-amber-300 shadow">
             <Icone className="h-6 w-6" />
           </div>
         )}
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900">{titre}</h1>
+          <h1 className="font-display text-2xl font-semibold text-marine md:text-3xl">{titre}</h1>
           {sousTitre && <p className="text-sm text-slate-500">{sousTitre}</p>}
         </div>
       </div>

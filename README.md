@@ -128,8 +128,8 @@ backend/
   tests/
 frontend/
   src/
-    config/site.js          ← ⭐ nom de l'Église, bandeau défilant, annonce
-    config/departements.js  ← ⭐ cartes de la page d'accueil
+    config/site.js          ← ⭐ nom de l'Église, vision, annonce
+    config/accueil.js       ← ⭐ contenu de la page d'accueil (modules, parcours, avantages, accès directs)
     pages/                  ← une page par écran
     components/             ← composants réutilisables (Layout, formulaires, tableaux)
     lib/api.js              ← appels au backend

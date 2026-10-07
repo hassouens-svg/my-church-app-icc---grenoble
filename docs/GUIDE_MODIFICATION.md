@@ -2,14 +2,20 @@
 
 Les modifications les plus courantes, pas à pas.
 
-## 1. Changer le nom, le slogan, le bandeau ou l'annonce
+## 1. Changer le nom, le slogan, la vision ou l'annonce
 Fichier : `frontend/src/config/site.js`. À l'enregistrement, la page se met à jour toute seule.
 Le logo est `frontend/public/logo.svg` : remplacez-le par votre image, ou changez `logo:` dans `site.js`.
 
-## 2. Ajouter / renommer une carte sur la page d'accueil
-Fichier : `frontend/src/config/departements.js`. Copier un bloc `{ titre, description, icone, couleur, lien }`.
-- Icônes : https://lucide.dev/icons (nom en PascalCase, à importer en haut du fichier)
-- Couleurs : classes Tailwind, par ex. `from-teal-400 to-teal-600`
+## 2. Modifier le contenu de la page d'accueil
+Fichier : `frontend/src/config/accueil.js`, avec une liste par section :
+- `MODULES` : les 6 espaces (titre, icône, couleur, lien, points)
+- `PARCOURS` : les étapes de la frise
+- `AVANTAGES`, `FICHE` : les listes de la page
+- `ACCES_DIRECTS` : les raccourcis pour les responsables
+
+Icônes : https://lucide.dev/icons (nom en PascalCase, à importer en haut du fichier).
+Couleurs : une clé de `COULEURS` (`vert`, `bleu`, `violet`, `orange`, `cyan`, `rouge`, `marine`…).
+Couleur principale (bleu marine) : `marine` dans `frontend/tailwind.config.js`.
 
 ## 3. Ajouter un département, une étape, un statut, un rôle, un type de suivi
 Fichier : `backend/app/constants.py`. Ajouter une ligne `{"code": "...", "label": "..."}`.

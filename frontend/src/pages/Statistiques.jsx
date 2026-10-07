@@ -75,7 +75,7 @@ export default function Statistiques() {
           {(stats?.cultes || []).map((c) => (
             <div key={c.id} className="flex flex-1 flex-col items-center gap-1" title={`${formatDate(c.date)} — ${c.total} personnes`}>
               <span className="text-xs font-bold">{c.total}</span>
-              <div className="w-full rounded-t bg-gradient-to-t from-indigo-600 to-purple-500" style={{ height: `${(c.total / maxCulte) * 140}px` }} />
+              <div className="w-full rounded-t bg-marine" style={{ height: `${(c.total / maxCulte) * 140}px` }} />
               <span className="text-[10px] text-slate-500">{formatDate(c.date).slice(0, 5)}</span>
             </div>
           ))}

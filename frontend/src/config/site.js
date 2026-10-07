@@ -1,23 +1,19 @@
 /**
- * Personnalisation de l'Église : nom, slogan, bandeau défilant, annonce.
+ * Personnalisation de l'Église : nom, slogan, vision, annonce.
  * 👉 Modifiez librement ce fichier, la page d'accueil se met à jour toute seule.
  */
 export const SITE = {
-  nom: 'ICC GRENOBLE',
+  nom: 'ICC Grenoble',
   sousTitre: 'Impact Centre Chrétien - Grenoble',
   nomApplication: 'My Church ICC App',
   logo: '/logo.svg',
 
-  // Messages du bandeau défilant en haut de la page d'accueil
-  bandeau: [
-    '🙏 Grenoble pour Christ',
-    '🎯 2026, Année du Discipolat',
-    'Objectif <b>1000</b> Disciples affermis du Christ à Grenoble',
-  ],
+  // Mots de la vision, affichés sous le titre de la page d'accueil
+  vision: ['Grenoble pour Christ', '2026, Année du Discipolat', 'Objectif 1000 disciples affermis'],
 
-  // Petite annonce affichée en haut à droite (mettre null pour la masquer)
+  // Bandeau d'annonce tout en haut de la page d'accueil (mettre null pour le masquer)
+  annonce: "Retraite des jeunes d'ICC Grenoble, dans 2 jours",
+
   // Affiche les comptes de démonstration sur la page de connexion (mettre false en production)
   afficherComptesDemo: true,
-
-  annonce: "🎉 Retraite des jeunes d'ICC Grenoble, dans 2 jours",
 };

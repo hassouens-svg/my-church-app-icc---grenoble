@@ -45,7 +45,7 @@ export default function FideleDetail() {
 
       <div className="card mb-6 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-2xl font-black text-white">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-marine text-2xl font-black text-amber-300">
             {f.prenom[0]}{f.nom[0]}
           </div>
           <div>

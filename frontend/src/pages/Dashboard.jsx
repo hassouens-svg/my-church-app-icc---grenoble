@@ -40,7 +40,7 @@ export default function Dashboard() {
           {etapes.map((e, i) => (
             <div key={e.code} className="flex flex-1 items-center gap-2">
               <Link to={LIENS_ETAPE[e.code] || '/fideles'} className="flex-1 rounded-xl bg-slate-50 p-4 text-center ring-1 ring-slate-200 transition hover:bg-indigo-50">
-                <div className="text-3xl font-black text-indigo-700">{stats?.par_etape?.[e.code] ?? 0}</div>
+                <div className="text-3xl font-black text-marine">{stats?.par_etape?.[e.code] ?? 0}</div>
                 <div className="text-sm font-bold">{e.label}</div>
                 <div className="text-xs text-slate-500">{e.description}</div>
               </Link>

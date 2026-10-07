@@ -27,11 +27,11 @@ export default function Inscription() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-indigo-800 to-purple-900 p-4">
-      <div className="mx-auto mt-6 max-w-lg rounded-2xl bg-white p-8 shadow-2xl">
+    <div className="min-h-screen bg-[#f7f5f0] p-4">
+      <div className="mx-auto mt-6 max-w-lg rounded-3xl bg-white p-8 shadow-xl shadow-slate-900/5 ring-1 ring-slate-200">
         <div className="mb-6 text-center">
           <img src={SITE.logo} alt="" className="mx-auto h-16 w-16" />
-          <h1 className="mt-2 text-2xl font-black">Bienvenue chez {SITE.nom} !</h1>
+          <h1 className="mt-2 font-display text-3xl font-semibold text-marine">Bienvenue chez {SITE.nom} !</h1>
           <p className="text-sm text-slate-500">Laissez-nous vos coordonnées pour que nous puissions vous accompagner.</p>
         </div>
         {merci ? (

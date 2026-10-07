@@ -23,11 +23,11 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-900 via-indigo-800 to-purple-900 p-4">
-      <form onSubmit={submit} className="w-full max-w-sm space-y-4 rounded-2xl bg-white p-8 shadow-2xl">
+    <div className="flex min-h-screen items-center justify-center bg-[#f7f5f0] p-4">
+      <form onSubmit={submit} className="w-full max-w-sm space-y-4 rounded-3xl bg-white p-8 shadow-xl shadow-slate-900/5 ring-1 ring-slate-200">
         <div className="text-center">
           <img src={SITE.logo} alt="" className="mx-auto h-20 w-20" />
-          <h1 className="mt-3 text-2xl font-black">{SITE.nom}</h1>
+          <h1 className="mt-3 font-display text-3xl font-semibold text-marine">{SITE.nom}</h1>
           <p className="text-sm text-slate-500">Connexion à {SITE.nomApplication}</p>
         </div>
         <ErrorMsg error={erreur} />

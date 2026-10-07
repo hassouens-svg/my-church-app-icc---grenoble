@@ -43,7 +43,7 @@ export default function Layout() {
           <div key={i} className="mt-4 px-3 text-[11px] font-bold uppercase tracking-wider text-indigo-200/70">{m.section}</div>
         ) : (
           <NavLink key={m.lien} to={m.lien} end onClick={() => setOuvert(false)}
-            className={({ isActive }) => `flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold transition ${isActive ? 'bg-white/15 text-white' : 'text-indigo-100 hover:bg-white/10'}`}>
+            className={({ isActive }) => `flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold transition ${isActive ? 'bg-white/15 text-white shadow-[inset_3px_0_0_#fbbf24]' : 'text-indigo-100 hover:bg-white/10'}`}>
             <m.icone className="h-4 w-4" /> {m.titre}
           </NavLink>
         ),
@@ -53,11 +53,11 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen lg:flex">
-      <aside className={`fixed inset-y-0 left-0 z-40 w-64 transform overflow-y-auto bg-gradient-to-b from-indigo-900 via-indigo-800 to-purple-900 transition lg:static lg:translate-x-0 ${ouvert ? 'translate-x-0' : '-translate-x-full'}`}>
+      <aside className={`fixed inset-y-0 left-0 z-40 w-64 transform overflow-y-auto bg-marine transition lg:static lg:translate-x-0 ${ouvert ? 'translate-x-0' : '-translate-x-full'}`}>
         <Link to="/" className="flex items-center gap-3 border-b border-white/10 p-4">
           <img src={SITE.logo} alt="" className="h-10 w-10" />
           <div className="leading-tight text-white">
-            <div className="font-extrabold">{SITE.nom}</div>
+            <div className="font-display text-lg font-semibold">{SITE.nom}</div>
             <div className="text-xs text-indigo-200">{SITE.nomApplication}</div>
           </div>
         </Link>
